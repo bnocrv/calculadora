@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="theme-switch">
+    <label class="switch">
+      <input type="checkbox" id="toggle-theme">
+      <span class="slider"></span>
+    </label>
+    <span class="theme-label">🌞 / 🌙</span>
+  </div>
+
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn function">C</button>
+      <button class="btn function">←</button>
+      <button class="btn operator">/</button>
+      <button class="btn operator">*</button>
+
+      <button class="btn number">7</button>
+      <button class="btn number">8</button>
+      <button class="btn number">9</button>
+      <button class="btn operator">-</button>
+
+      <button class="btn number">4</button>
+      <button class="btn number">5</button>
+      <button class="btn number">6</button>
+      <button class="btn operator">+</button>
+
+      <button class="btn number">1</button>
+      <button class="btn number">2</button>
+      <button class="btn number">3</button>
+      <button class="btn equal">=</button>
+
+      <button class="btn zero">0</button>
+      <button class="btn number">.</button>
+    </div>
+  </div>
+
+<footer>
+  <p>Created by <a href="https://github.com/bnocrv" target="_blank" rel="noopener noreferrer">bnocrv</a></p>
+</footer>
+
+
+  <script>
+    const toggle = document.getElementById('toggle-theme');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    toggle.checked = savedTheme === 'dark';
+
+    toggle.addEventListener('change', () => {
+      const newTheme = toggle.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
